@@ -1,0 +1,10 @@
+title       = "opentrivia"
+baseURL     = "https://opentrivia-cli.tamnd.com/"
+description = "Open Trivia Database — free trivia questions"
+contentDir  = "content"
+outputDir   = "public"
+theme       = "tago-doks"
+syntaxHighlight = "true"
+
+[params]
+github = "https://github.com/tamnd/opentrivia-cli"

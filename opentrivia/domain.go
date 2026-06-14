@@ -83,11 +83,11 @@ func newClient(_ context.Context, cfg kit.Config) (any, error) {
 // --- inputs ---
 
 type questionsInput struct {
-	Amount     int     `kit:"flag,inherit" help:"number of questions (1-50)"`
-	Category   int     `kit:"flag,inherit" help:"category ID (0 = any)"`
-	Difficulty string  `kit:"flag,inherit" help:"difficulty: easy, medium, hard"`
-	Type       string  `kit:"flag,inherit" help:"question type: multiple, boolean"`
-	Token      string  `kit:"flag,inherit" help:"session token to avoid repeat questions"`
+	Amount     int    `kit:"flag" default:"10" help:"number of questions (1-50)"`
+	Category   int    `kit:"flag" default:"0"  help:"category ID (0 = any)"`
+	Difficulty string `kit:"flag"              help:"difficulty: easy, medium, hard"`
+	Type       string `kit:"flag"              help:"question type: multiple, boolean"`
+	Token      string `kit:"flag"              help:"session token to avoid repeat questions"`
 	Client     *Client `kit:"inject"`
 }
 

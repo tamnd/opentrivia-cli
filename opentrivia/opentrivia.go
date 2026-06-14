@@ -14,6 +14,7 @@ import (
 	"html"
 	"io"
 	"net/http"
+	"strings"
 	"sync"
 	"time"
 )
@@ -107,13 +108,13 @@ func (c *Client) Questions(ctx context.Context, amount, category int, difficulty
 			ia[j] = html.UnescapeString(a)
 		}
 		items = append(items, Question{
-			Rank:             i + 1,
-			Category:         html.UnescapeString(r.Category),
-			Type:             r.Type,
-			Difficulty:       r.Difficulty,
-			Question:         html.UnescapeString(r.Question),
-			CorrectAnswer:    html.UnescapeString(r.CorrectAnswer),
-			IncorrectAnswers: ia,
+			Rank:          i + 1,
+			Category:      html.UnescapeString(r.Category),
+			Type:          r.Type,
+			Difficulty:    r.Difficulty,
+			Question:      html.UnescapeString(r.Question),
+			CorrectAnswer: html.UnescapeString(r.CorrectAnswer),
+			OtherAnswers:  strings.Join(ia, ", "),
 		})
 	}
 	return items, nil

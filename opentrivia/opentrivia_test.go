@@ -106,8 +106,9 @@ func TestQuestionsParsesItems(t *testing.T) {
 	if items[0].CorrectAnswer != "HyperText Transfer Protocol" {
 		t.Errorf("items[0].CorrectAnswer = %q", items[0].CorrectAnswer)
 	}
-	if len(items[0].IncorrectAnswers) != 3 {
-		t.Errorf("len(items[0].IncorrectAnswers) = %d, want 3", len(items[0].IncorrectAnswers))
+	wantOther := "High Transfer Text Protocol, HyperText Transmission Protocol, HyperType Transfer Protocol"
+	if items[0].OtherAnswers != wantOther {
+		t.Errorf("items[0].OtherAnswers = %q, want %q", items[0].OtherAnswers, wantOther)
 	}
 }
 

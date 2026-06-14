@@ -2,19 +2,19 @@ package opentrivia
 
 // Question is one trivia question from the Open Trivia Database.
 type Question struct {
-	Rank             int      `json:"rank"`
-	Category         string   `json:"category"`
-	Type             string   `json:"type"`              // "multiple" or "boolean"
-	Difficulty       string   `json:"difficulty"`        // "easy", "medium", "hard"
-	Question         string   `json:"question"`          // HTML-decoded
-	CorrectAnswer    string   `json:"correct_answer"`    // HTML-decoded
-	IncorrectAnswers []string `json:"incorrect_answers"` // HTML-decoded
+	Rank          int    `json:"rank"`
+	Category      string `kit:"id" json:"category"`
+	Type          string `json:"type"`           // "multiple" or "boolean"
+	Difficulty    string `json:"difficulty"`     // "easy", "medium", "hard"
+	Question      string `json:"question"`       // HTML-decoded
+	CorrectAnswer string `json:"correct_answer"` // HTML-decoded
+	OtherAnswers  string `json:"other_answers"`  // comma-joined incorrect answers, HTML-decoded
 }
 
 // Category is one entry from the categories endpoint.
 type Category struct {
 	Rank int    `json:"rank"`
-	ID   int    `json:"id"`
+	ID   int    `kit:"id" json:"id"`
 	Name string `json:"name"`
 }
 
